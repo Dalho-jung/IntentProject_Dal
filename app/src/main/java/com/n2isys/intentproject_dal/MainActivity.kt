@@ -1,9 +1,11 @@
 package com.n2isys.intentproject_dal
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Telephony.Mms.Intents
+import android.widget.Toast
 import com.n2isys.intentproject_dal.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -39,5 +41,17 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(myIntent,REQUEST_FOR_NICKNAME)
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // 닉네임을 관련된거냐?
+        if(requestCode == REQUEST_FOR_NICKNAME){
+            if(resultCode == Activity.RESULT_OK){
+                val newNicname = data?.getStringExtra("nickname")
+                Toast.makeText(this , newNicname ,Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
