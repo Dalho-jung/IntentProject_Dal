@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
             //다른화면으로 이동
             val myIntent = Intent(this,OtherActivity::class.java)
             startActivity(myIntent)
+
         }
 
     }
