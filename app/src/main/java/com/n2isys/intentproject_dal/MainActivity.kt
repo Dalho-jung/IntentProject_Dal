@@ -7,6 +7,8 @@ import android.provider.Telephony.Mms.Intents
 import com.n2isys.intentproject_dal.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    val REQUEST_FOR_NICKNAME = 1005
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,6 +31,12 @@ class MainActivity : AppCompatActivity() {
             myIntent.putExtra("message",inputMessage)
 
             startActivity(myIntent)
+        }
+
+        viewbind.editNicknameBtn.setOnClickListener {
+
+            val myIntent = Intent(this,EditNicknameActivity::class.java)
+            startActivityForResult(myIntent,REQUEST_FOR_NICKNAME)
         }
 
     }

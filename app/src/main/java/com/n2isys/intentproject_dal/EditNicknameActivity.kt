@@ -11,5 +11,11 @@ class EditNicknameActivity : AppCompatActivity() {
         var viewbind2 = ActivityEditNicknameBinding.inflate(layoutInflater,null,false)
 
         setContentView(viewbind2.root)
+
+        viewbind2.okBtn.setOnClickListener {
+
+
+
+        }
     }
 }
