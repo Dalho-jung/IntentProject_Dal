@@ -22,5 +22,14 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        viewbind.sendMessageBtn.setOnClickListener {
+//          입력한 내용을 변수ㅠ에 저장
+            val inputMessage = viewbind.messageEdt.text.toString()
+            val myIntent = Intent(this,MessageActivity::class.java)
+            myIntent.putExtra("message",inputMessage)
+
+            startActivity(myIntent)
+        }
+
     }
 }
