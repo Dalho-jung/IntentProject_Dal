@@ -2,6 +2,7 @@ package com.n2isys.intentproject_dal
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Telephony.Mms.Intents
@@ -18,6 +19,14 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(viewbind.root)
 
+        viewbind.dialBtn.setOnClickListener {
+
+//            phoneNumEdt에 입력한 전화번호를 받아서 전화연결
+            val inputPhoneNum = viewbind.phoneNumEdt.text.toString()
+            val myUri = Uri.parse("tel: ${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_DIAL,myUri)
+            startActivity(myIntent)
+        }
         viewbind.moveOtherBtn.setOnClickListener {
 
             //다른화면으로 이동
