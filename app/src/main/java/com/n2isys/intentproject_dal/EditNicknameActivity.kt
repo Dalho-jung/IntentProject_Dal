@@ -1,5 +1,6 @@
 package com.n2isys.intentproject_dal
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.n2isys.intentproject_dal.databinding.ActivityEditNicknameBinding
@@ -14,8 +15,11 @@ class EditNicknameActivity : AppCompatActivity() {
 
         viewbind2.okBtn.setOnClickListener {
 
-
-
+            val inputNewNickname = viewbind2.newNicknameEdt.text.toString()
+            val resultIntent = Intent()
+            resultIntent.putExtra("nickname",inputNewNickname)
+            setResult(RESULT_OK , resultIntent)
+            finish()
         }
     }
 }
